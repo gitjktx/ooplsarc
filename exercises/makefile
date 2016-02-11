@@ -1,24 +1,5 @@
 FILES :=       \
-    IsPrime1   \
-    IsPrime2   \
-    StrCmp     \
-    Incr       \
-    Equal      \
-    Copy       \
-    Fill       \
-    AllOf      \
-    Accumulate \
-    Transform  \
-    Vector1    \
-    Vector2    \
-    Vector3    \
-    Vector4    \
-    Shapes1    \
-    Shapes2    \
-    Shapes3    \
-    Handle1    \
-    Handle2    \
-    SharedPtr
+    IsPrime1
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall

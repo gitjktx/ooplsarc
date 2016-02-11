@@ -6,38 +6,7 @@ FILES :=                    \
     Coverage3               \
     Exceptions              \
     Exceptions2             \
-    Exceptions3             \
-    Types                   \
-    Operators               \
-    Representations         \
-    Variables               \
-    Arguments               \
-    Cache                   \
-    Returns                 \
-    Selection               \
-    StackVsHeap             \
-    Valgrind                \
-    Lambdas                 \
-    Iteration               \
-    Consts                  \
-    Consts2                 \
-    Arrays                  \
-    FunctionDefaults        \
-    Friends                 \
-    Conversions             \
-    Initializations         \
-    FunctionOverloading     \
-    FunctionGenerics        \
-    FunctionSpecializations \
-    Sequences               \
-    TypeAliases             \
-    Auto                    \
-    MethodOverriding1       \
-    MethodOverriding2       \
-    LocalVariables          \
-    GlobalVariables         \
-    ClassVariables          \
-    InstanceVariables
+    Exceptions3
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
