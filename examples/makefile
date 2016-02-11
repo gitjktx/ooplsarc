@@ -8,7 +8,7 @@ FILES :=                    \
     Exceptions2             \
     Exceptions3
 
-CXX        := g++
+CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
 LDFLAGS    := -lgtest -lgtest_main -pthread
 GCOV       := gcov-4.8
