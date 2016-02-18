@@ -38,6 +38,7 @@ pull:
     --include "IsPrime1.c++"                \
     --include "IsPrime1.h"                  \
     --include "StrCmp.c++"                  \
+    --include "StrCmp.h"                    \
     --include "Incr.c++"                    \
     --include "Equal.c++"                   \
     --exclude "*"                           \
