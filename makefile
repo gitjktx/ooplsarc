@@ -27,6 +27,11 @@ pull:
     --include "Exceptions.c++"              \
     --include "Exceptions2.c++"             \
     --include "Exceptions3.c++"             \
+    --include "Variables.c++"               \
+    --include "Arguments.c++"               \
+    --include "Returns.c++"                 \
+    --include "Types.c++"                   \
+    --include "Cache.c++"                   \
     --exclude "*"                           \
     ../../../examples/c++/ examples
 	@rsync -r -t -u -v --delete             \

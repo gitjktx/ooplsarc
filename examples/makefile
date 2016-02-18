@@ -6,7 +6,12 @@ FILES :=                    \
     Coverage3               \
     Exceptions              \
     Exceptions2             \
-    Exceptions3
+    Exceptions3             \
+    Variables               \
+    Arguments               \
+    Returns                 \
+    Types                   \
+    Cache
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
