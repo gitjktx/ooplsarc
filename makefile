@@ -34,6 +34,8 @@ pull:
     --include "Types.c++"                   \
     --include "Representations.c++"         \
     --include "Operators.c++"               \
+    --include "Selection.c++"               \
+    --include "Iteration.c++"               \
     --exclude "*"                           \
     ../../../examples/c++/ examples
 	@rsync -r -t -u -v --delete             \
