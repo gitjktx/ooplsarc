@@ -16,7 +16,13 @@ struct A {
     T      x;};
 
 template <typename T>
-struct B : A<T> {
+struct B {
+    double d;
+    int    i;
+    T      x;};
+
+template <typename T>
+struct C : A<T> {
     A<T> y;};
 
 union U {
@@ -62,7 +68,8 @@ int main () {
     long l = 2L;
     assert(sizeof(l)    ==  8);
     assert(sizeof(long) ==  8);
-    assert(numeric_limits<         long>::min() == -9223372036854775807L - 1);
+//  assert(numeric_limits<         long>::min() == -9223372036854775808L);  // warning: integer literal is too large to be represented in a signed integer type, interpreting as unsigned
+    assert(numeric_limits<         long>::min() == -9223372036854775808UL);
     assert(numeric_limits<         long>::max() ==  9223372036854775807L);
     assert(numeric_limits<unsigned long>::min() ==                    0);
     assert(numeric_limits<unsigned long>::max() == 18446744073709551615UL);
@@ -70,7 +77,8 @@ int main () {
     long long ll = 2LL;
     assert(sizeof(ll)        ==  8);
     assert(sizeof(long long) ==  8);
-    assert(numeric_limits<         long long>::min() == -9223372036854775807LL - 1);
+//  assert(numeric_limits<         long long>::min() == -9223372036854775808LL);  // warning: integer literal is too large to be represented in a signed integer type, interpreting as unsigned
+    assert(numeric_limits<         long long>::min() == -9223372036854775808ULL);
     assert(numeric_limits<         long long>::max() ==  9223372036854775807LL);
     assert(numeric_limits<unsigned long long>::min() ==                    0);
     assert(numeric_limits<unsigned long long>::max() == 18446744073709551615ULL);
@@ -146,8 +154,20 @@ int main () {
     }
 
     {
-    B<double> x;
-    assert(sizeof(B<double>) == 48);
+    B<int> x = {2.34, 5, 6};
+    assert(sizeof(B<int>) == 16);
+    assert(sizeof(x)      == 16);
+    }
+
+    {
+    B<double> x = {2.34, 5, 6.78};
+    assert(sizeof(B<double>) == 24);
+    assert(sizeof(x)         == 24);
+    }
+
+    {
+    C<double> x;
+    assert(sizeof(C<double>) == 48);
     assert(sizeof(x)         == 48);
     }
 

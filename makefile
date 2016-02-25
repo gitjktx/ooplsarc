@@ -30,8 +30,10 @@ pull:
     --include "Variables.c++"               \
     --include "Arguments.c++"               \
     --include "Returns.c++"                 \
-    --include "Types.c++"                   \
     --include "Cache.c++"                   \
+    --include "Types.c++"                   \
+    --include "Representations.c++"         \
+    --include "Operators.c++"               \
     --exclude "*"                           \
     ../../../examples/c++/ examples
 	@rsync -r -t -u -v --delete             \
@@ -40,7 +42,11 @@ pull:
     --include "StrCmp.c++"                  \
     --include "StrCmp.h"                    \
     --include "Incr.c++"                    \
+    --include "Incr.h"                      \
     --include "Equal.c++"                   \
+    --include "Copy.c++"                    \
+    --include "Fill.c++"                    \
+    --include "AllOf.c++"                   \
     --exclude "*"                           \
     ../../../exercises/c++/ exercises
 

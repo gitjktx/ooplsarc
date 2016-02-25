@@ -10,8 +10,10 @@ FILES :=                    \
     Variables               \
     Arguments               \
     Returns                 \
+    Cache                   \
     Types                   \
-    Cache
+    Representations         \
+    Operators
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
