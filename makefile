@@ -37,7 +37,7 @@ pull:
     --include "Selection.c++"               \
     --include "Iteration.c++"               \
     --exclude "*"                           \
-    ../../../examples/c++/ examples
+    ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete             \
     --include "IsPrime1.c++"                \
     --include "IsPrime1.h"                  \
@@ -50,7 +50,7 @@ pull:
     --include "Fill.c++"                    \
     --include "AllOf.c++"                   \
     --exclude "*"                           \
-    ../../../exercises/c++/ exercises
+    ../../exercises/c++/ exercises
 
 push:
 	make clean
