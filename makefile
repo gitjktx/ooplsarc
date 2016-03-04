@@ -34,8 +34,12 @@ pull:
     --include "Types.c++"                   \
     --include "Representations.c++"         \
     --include "Operators.c++"               \
+    --include "StackVsHeap.c++"             \
+    --include "Valgrind.c++"                \
+    --include "Iterators.c++"               \
     --include "Selection.c++"               \
     --include "Iteration.c++"               \
+    --include "Lambdas.c++"                 \
     --exclude "*"                           \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete             \
@@ -50,7 +54,12 @@ pull:
     --include "Copy.c++"                    \
     --include "Copy.h"                      \
     --include "Fill.c++"                    \
+    --include "Fill.h"                      \
     --include "AllOf.c++"                   \
+    --include "Accumulate.c++"              \
+    --include "Transform.c++"               \
+    --include "RangeIterator.c++"           \
+    --include "Range.c++"                   \
     --exclude "*"                           \
     ../../exercises/c++/ exercises
 

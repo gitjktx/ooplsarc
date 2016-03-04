@@ -2,11 +2,11 @@
 // Fill.c++
 // --------
 
-#include <algorithm>  // all_of, fill
+#include <algorithm>  // equal, fill
 #include <cassert>    // assert
 #include <functional> // function
 #include <iostream>   // cout, endl
-#include <list>       // list
+#include <vector>     // vector
 
 #include "gtest/gtest.h"
 
@@ -15,7 +15,7 @@
 using namespace std;
 using namespace testing;
 
-using Fill_List_Signature = function<void (list<int>::iterator, list<int>::iterator, const int&)>;
+using Fill_List_Signature = function<void (vector<int>::iterator, vector<int>::iterator, int)>;
 
 struct Fill_List_Fixture : TestWithParam<Fill_List_Signature>
     {};
@@ -24,33 +24,19 @@ INSTANTIATE_TEST_CASE_P(
     Fill_List_Instantiation,
     Fill_List_Fixture,
     Values(
-           fill<list<int>::iterator, int>,
-        my_fill<list<int>::iterator, int>));
+           fill<vector<int>::iterator, int>,
+        my_fill<vector<int>::iterator, int>));
 
-TEST_P(Fill_List_Fixture, test) {
-    const size_t s = 3;
-    const int    v = 5;
-    list<int>    x(s);
-    GetParam()(x.begin(), x.end(), v);
-    ASSERT_TRUE(all_of(x.begin(), x.end(), [v] (int w) -> bool {return v == w;}));}
+TEST_P(Fill_List_Fixture, test_1) {
+    const int         v = 2;
+          vector<int> x(5);
+    const vector<int> y = {0, 2, 2, 2, 0};
+    GetParam()(x.begin() + 1, x.end() - 1, v);
+    ASSERT_TRUE(equal(x.begin(), x.end(), y.begin()));}
 
-/*
-% g++ -pedantic -std=c++11 -Wall Fill.c++ -o Fill -lgtest_main
-
-
-
-% Fill
-Running main() from gtest_main.cc
-[==========] Running 2 tests from 1 test case.
-[----------] Global test environment set-up.
-[----------] 2 tests from Fill_List_Instantiation/Fill_List_Fixture
-[ RUN      ] Fill_List_Instantiation/Fill_List_Fixture.test/0
-[       OK ] Fill_List_Instantiation/Fill_List_Fixture.test/0 (0 ms)
-[ RUN      ] Fill_List_Instantiation/Fill_List_Fixture.test/1
-[       OK ] Fill_List_Instantiation/Fill_List_Fixture.test/1 (0 ms)
-[----------] 2 tests from Fill_List_Instantiation/Fill_List_Fixture (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 2 tests from 1 test case ran. (0 ms total)
-[  PASSED  ] 2 tests.
-*/
+TEST_P(Fill_List_Fixture, test_2) {
+    const int         v = 3;
+          vector<int> x(6);
+    const vector<int> y = {0, 3, 3, 3, 3, 0};
+    GetParam()(x.begin() + 1, x.end() - 1, v);
+    ASSERT_TRUE(equal(x.begin(), x.end(), y.begin()));}

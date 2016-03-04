@@ -30,31 +30,18 @@ INSTANTIATE_TEST_CASE_P(
            copy<list<int>::const_iterator, vector<int>::iterator>,
         my_copy<list<int>::const_iterator, vector<int>::iterator>));
 
-TEST_P(Copy_List_Fixture, test) {
+TEST_P(Copy_List_Fixture, test_1) {
     const list<int>       x = {2, 3, 4};
-    vector<int>           y(5);
-    const list<int>       z = {0, 2, 3, 4, 0};
+          vector<int>     y(5);
+    const vector<int>     z = {0, 2, 3, 4, 0};
     vector<int>::iterator p = GetParam()(x.begin(), x.end(), y.begin() + 1);
     ASSERT_EQ(p, y.begin() + 4);
     ASSERT_TRUE(equal(y.begin(), y.end(), z.begin()));}
 
-/*
-% g++ -pedantic -std=c++11 -Wall Copy.c++ -o Copy -lgtest_main
-
-
-
-% Copy
-Running main() from gtest_main.cc
-[==========] Running 2 tests from 1 test case.
-[----------] Global test environment set-up.
-[----------] 2 tests from Copy_List_Instantiation/Copy_List_Fixture
-[ RUN      ] Copy_List_Instantiation/Copy_List_Fixture.test/0
-[       OK ] Copy_List_Instantiation/Copy_List_Fixture.test/0 (0 ms)
-[ RUN      ] Copy_List_Instantiation/Copy_List_Fixture.test/1
-[       OK ] Copy_List_Instantiation/Copy_List_Fixture.test/1 (0 ms)
-[----------] 2 tests from Copy_List_Instantiation/Copy_List_Fixture (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 2 tests from 1 test case ran. (0 ms total)
-[  PASSED  ] 2 tests.
-*/
+TEST_P(Copy_List_Fixture, test_2) {
+    const list<int>       x = {2, 3, 4, 5};
+          vector<int>     y(6);
+    const vector<int>     z = {0, 2, 3, 4, 5, 0};
+    vector<int>::iterator p = GetParam()(x.begin(), x.end(), y.begin() + 1);
+    ASSERT_EQ(p, y.begin() + 5);
+    ASSERT_TRUE(equal(y.begin(), y.end(), z.begin()));}

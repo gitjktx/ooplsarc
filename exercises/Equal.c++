@@ -28,28 +28,12 @@ INSTANTIATE_TEST_CASE_P(
            equal<list<int>::const_iterator, vector<int>::const_iterator>,
         my_equal<list<int>::const_iterator, vector<int>::const_iterator>));
 
-TEST_P(Equal_List_Fixture, test) {
+TEST_P(Equal_List_Fixture, test_1) {
     const list<int>   x = {2, 3, 4};
-    const vector<int> y = {2, 3, 4};
-	ASSERT_TRUE(GetParam()(_x.begin(), _x.end(), _y.begin()));}
+    const vector<int> y = {0, 2, 3, 4, 0};
+	ASSERT_FALSE(GetParam()(x.begin(), x.end(), y.begin()));}
 
-/*
-% g++ -pedantic -std=c++11 -Wall Equal.c++ -o Equal -lgtest_main
-
-
-
-% Equal
-Running main() from gtest_main.cc
-[==========] Running 2 tests from 1 test case.
-[----------] Global test environment set-up.
-[----------] 2 tests from Equal_List_Instantiation/Equal_List_Fixture
-[ RUN      ] Equal_List_Instantiation/Equal_List_Fixture.test/0
-[       OK ] Equal_List_Instantiation/Equal_List_Fixture.test/0 (0 ms)
-[ RUN      ] Equal_List_Instantiation/Equal_List_Fixture.test/1
-[       OK ] Equal_List_Instantiation/Equal_List_Fixture.test/1 (0 ms)
-[----------] 2 tests from Equal_List_Instantiation/Equal_List_Fixture (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 2 tests from 1 test case ran. (0 ms total)
-[  PASSED  ] 2 tests.
-*/
+TEST_P(Equal_List_Fixture, test_2) {
+    const list<int>   x = {2, 3, 4};
+    const vector<int> y = {0, 2, 3, 4, 0};
+	ASSERT_TRUE(GetParam()(x.begin(), x.end(), y.begin() + 1));}

@@ -34,30 +34,6 @@ TEST_P(AllOf_List_Fixture, test_1) {
     ASSERT_TRUE(GetParam()(x.begin(), x.end(), [] (int v) -> bool {return (v % 2);}));}
 
 TEST_P(AllOf_List_Fixture, test_2) {
-    const list<int> x = {3, 6, 7};
-    ASSERT_FALSE(GetParam()(x.begin(), x.end(), [] (int v) -> bool {return (v % 2);}));}
-
-/*
-% g++ -pedantic -std=c++11 -Wall AllOf.c++ -o AllOf -lgtest_main
-
-
-
-% AllOf
-Running main() from gtest_main.cc
-[==========] Running 4 tests from 1 test case.
-[----------] Global test environment set-up.
-[----------] 4 tests from AllOf_List_Instantiation/AllOf_List_Fixture
-[ RUN      ] AllOf_List_Instantiation/AllOf_List_Fixture.test_1/0
-[       OK ] AllOf_List_Instantiation/AllOf_List_Fixture.test_1/0 (0 ms)
-[ RUN      ] AllOf_List_Instantiation/AllOf_List_Fixture.test_1/1
-[       OK ] AllOf_List_Instantiation/AllOf_List_Fixture.test_1/1 (0 ms)
-[ RUN      ] AllOf_List_Instantiation/AllOf_List_Fixture.test_2/0
-[       OK ] AllOf_List_Instantiation/AllOf_List_Fixture.test_2/0 (0 ms)
-[ RUN      ] AllOf_List_Instantiation/AllOf_List_Fixture.test_2/1
-[       OK ] AllOf_List_Instantiation/AllOf_List_Fixture.test_2/1 (0 ms)
-[----------] 4 tests from AllOf_List_Instantiation/AllOf_List_Fixture (1 ms total)
-
-[----------] Global test environment tear-down
-[==========] 4 tests from 1 test case ran. (1 ms total)
-[  PASSED  ] 4 tests.
-*/
+    const int       n = 2;
+    const list<int> x = {3, 5, 7};
+    ASSERT_TRUE(GetParam()(x.begin(), x.end(), [n] (int v) -> bool {return (v % n);}));}
